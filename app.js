@@ -7,6 +7,9 @@ const fragment = document.createDocumentFragment()
 document.addEventListener('DOMContentLoaded', ()=> {
     fetchData()
 })
+items.addEventListener('click', e => {
+    addCarrito(e)
+})
 
 const fetchData =async () => {
     try {
@@ -25,9 +28,14 @@ const pintarCards = data => {
        templateCard.querySelector('h5').textContent = producto.title
        templateCard.querySelector('p').textContent = producto.precio
        templateCard.querySelector('img').setAttribute("src", producto.image)
+       templateCard.querySelector('.btn-dark').dataset.id = producto.id
 
        const clone = templateCard.cloneNode(true)
        fragment.appendChild(clone)
     })
     items.appendChild(fragment)
+}
+
+const addCarrito = e => {
+    console.log(e.target)
 }
