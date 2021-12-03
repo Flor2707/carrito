@@ -93,8 +93,8 @@ const pintarFooter = () => {
         <th scope="row" colspan="5">Comenzá a comprar tus ollas preferidas!</th>`
         return
     }
-    const nCantidad = Object.values(carrito).reduce((acc,{cantidad}) => acc + cantidad,0)
-    const nPrecio = Object.values(carrito).reduce((acc, {cantidad,precio}) => acc + cantidad * precio,0)
+    const nCantidad = Object.values(carrito).reduce((acc,{ cantidad }) => acc + cantidad, 0)
+    const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio,0)
 
     templateFooter.querySelectorAll('td')[0].textContent = nCantidad
     templateFooter.querySelector('span').textContent = nPrecio
@@ -118,4 +118,13 @@ const btnAccion = e => {
        carrito[e.target.dataset.id] = { ...producto }
        pintarCarrito()
     }
+    if(e.target.classList.contains('btn-danger')) {
+        const producto = carrito[e.target.dataset.id]
+        producto.cantidad--
+        if (producto.cantidad === 0) {
+            delete carrito[e.target.dataset.id]
+        }
+        pintarCarrito()
+    }
+    e.stopPropagation()
 }
