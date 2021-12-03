@@ -1,6 +1,10 @@
 body {
-    background-color: #FFC2FF;
+    background-color: whitesmoke;
 }
+.btn-dark {
+    background-color: #FFC2FF;
+    color: whitesmoke;
+} 
 .btn-info {
     background-color: mediumvioletred;
     color:whitesmoke;
