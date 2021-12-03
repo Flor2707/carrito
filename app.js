@@ -16,6 +16,12 @@ cards.addEventListener('click', e => {
     addCarrito(e)
 })
 
+
+items.addEventListener('click', e => {
+    btnAccion(e)
+})
+
+
 const fetchData =async () => {
     try {
         const res = await fetch('api.json')
@@ -79,4 +85,37 @@ Object.values(carrito).forEach(producto => {
     fragment.appendChild(clone)
 })
 items.appendChild(fragment)
+}
+const pintarFooter = () => {
+    footer.innerHTML= ''
+    if (Object.keys(carrito).length === 0) {
+        footer.innerHTML = `
+        <th scope="row" colspan="5">Comenzá a comprar tus ollas preferidas!</th>`
+        return
+    }
+    const nCantidad = Object.values(carrito).reduce((acc,{cantidad}) => acc + cantidad,0)
+    const nPrecio = Object.values(carrito).reduce((acc, {cantidad,precio}) => acc + cantidad * precio,0)
+
+    templateFooter.querySelectorAll('td')[0].textContent = nCantidad
+    templateFooter.querySelector('span').textContent = nPrecio
+
+    const clone = templateFooter.cloneNode(true)
+    fragment.appendChild(clone)
+    footer.appendChild(fragment)
+
+    const btnVaciar = document.getElementById('vaciar-carrito')
+    btnVaciar.addEventListener('click', () => {
+        carrito = {}
+        pintarCarrito()
+    })
+}
+const btnAccion = e => {
+    //Para sumar cantidades
+    if(e.target.classList.contains('btn-info')) {
+       console.log(carrito[e.target.dataset.id])
+       const producto = carrito[e.target.dataset.id]
+       producto.cantidad++
+       carrito[e.target.dataset.id] = { ...producto }
+       pintarCarrito()
+    }
 }
