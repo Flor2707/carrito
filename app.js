@@ -118,7 +118,7 @@ const btnAccion = e => {
        carrito[e.target.dataset.id] = { ...producto }
        pintarCarrito()
     }
-    if(e.target.classList.contains('btn-danger')) {
+    if (e.target.classList.contains('btn-danger')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad--
         if (producto.cantidad === 0) {
