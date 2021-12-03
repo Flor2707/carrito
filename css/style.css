@@ -1,5 +1,5 @@
 body {
-    background-color: whitesmoke;
+    background-color: whitesmoke !important;
 }
 .btn-dark {
     background-color: #FFC2FF;
@@ -10,6 +10,6 @@ body {
     background-color: mediumvioletred;
     color:whitesmoke;
 }
-.card-img {
-background-color: whitesmoke;
+.cards.row {
+background-color: whitesmoke !important;
 }
