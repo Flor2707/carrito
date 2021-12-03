@@ -4,8 +4,12 @@ body {
 .btn-dark {
     background-color: #FFC2FF;
     color: whitesmoke;
+    border-color: #FFC2FF;
 } 
 .btn-info {
     background-color: mediumvioletred;
     color:whitesmoke;
+}
+.card-img {
+background-color: whitesmoke;
 }
