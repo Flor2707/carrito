@@ -1,3 +1,7 @@
 body {
     background-color: hotpink;
 }
+.btn-info {
+    background-color: mediumvioletred;
+    color:whitesmoke;
+}
