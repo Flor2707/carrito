@@ -4,6 +4,9 @@
     color: whitesmoke;
     border-color: #FFC2FF;
 } 
+h1 {
+    color: mediumvioletred;
+}
 .btn-info {
     background-color: mediumvioletred;
     color:whitesmoke;
