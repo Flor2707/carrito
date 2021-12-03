@@ -5,7 +5,7 @@
     border-color: #FFC2FF;
 } 
 h1 {
-    color: mediumvioletred;
+    color: mediumvioletred !important;
 }
 .btn-info {
     background-color: mediumvioletred;
